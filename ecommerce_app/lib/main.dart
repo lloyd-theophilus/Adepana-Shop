@@ -154,12 +154,18 @@ class _HomePageState extends State<HomePage> {
           carouselImage,
           //Padding for the Categories
         const Padding(padding: EdgeInsets.all(10),),
-        const Text('Categories'),
+         Container(
+          padding: const EdgeInsets.only(left: 10.0, bottom: 7.0),
+          child:const Text('Categories', style: TextStyle(fontWeight: FontWeight.bold), ),
+          ),
         //Horizontal list view begins here
         const HorizontalList(),
 
         const Padding(padding: EdgeInsets.all(20.0)),
-        const Text('Recent Products'),
+        Container(
+          padding: const EdgeInsets.only(left: 10.0, bottom:8.0),
+          child: const Text('Recent Products', style: TextStyle(fontWeight: FontWeight.bold),),
+          ),
 
 
         //Product Grid View starts
