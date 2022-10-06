@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/pages/cart.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:carousel_pro/carousel_pro.dart';
@@ -5,8 +6,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 //All components imports
 import 'package:ecommerce_app/components/horizontal_listview.dart';
 import 'package:ecommerce_app/components/products.dart';
-
-
 
 void main() {
   runApp(const MaterialApp(
@@ -25,19 +24,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    // Carousel Container 
-    Widget carouselImage =  SizedBox(
+    // Carousel Container
+    Widget carouselImage = SizedBox(
       height: 200,
       width: 200,
       child: Carousel(
         boxFit: BoxFit.cover,
         images: const [
-        AssetImage('images/1.jpeg'),
-        AssetImage('images/1c.jpeg'),
-        AssetImage('images/2.jpeg'),
-        AssetImage('images/2c.jpeg'),
-        AssetImage('images/3.jpeg'),
-        AssetImage('images/3c.jpeg'),
+          AssetImage('images/1.jpeg'),
+          AssetImage('images/1c.jpeg'),
+          AssetImage('images/2.jpeg'),
+          AssetImage('images/2c.jpeg'),
+          AssetImage('images/3.jpeg'),
+          AssetImage('images/3c.jpeg'),
         ],
         autoplay: true,
         animationCurve: Curves.fastOutSlowIn,
@@ -65,7 +64,11 @@ class _HomePageState extends State<HomePage> {
               Icons.shopping_cart,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
+                return const Carts();
+              })));
+            },
           )
         ],
       ),
@@ -153,29 +156,35 @@ class _HomePageState extends State<HomePage> {
           //Image carouselImage bgins her
           carouselImage,
           //Padding for the Categories
-        const Padding(padding: EdgeInsets.all(10),),
-         Container(
-          padding: const EdgeInsets.only(left: 10.0, bottom: 7.0),
-          child:const Text('Categories', style: TextStyle(fontWeight: FontWeight.bold), ),
+          const Padding(
+            padding: EdgeInsets.all(10),
           ),
-        //Horizontal list view begins here
-        const HorizontalList(),
+          Container(
+            padding: const EdgeInsets.only(left: 10.0, bottom: 7.0),
+            child: const Text(
+              'Categories',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          //Horizontal list view begins here
+          const HorizontalList(),
 
-        const Padding(padding: EdgeInsets.all(20.0)),
-        Container(
-          padding: const EdgeInsets.only(left: 10.0, bottom:8.0),
-          child: const Text('Recent Products', style: TextStyle(fontWeight: FontWeight.bold),),
+          const Padding(padding: EdgeInsets.all(20.0)),
+          Container(
+            padding: const EdgeInsets.only(left: 10.0, bottom: 12.0),
+            child: const Text(
+              'Recent Products',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
 
-
-        //Product Grid View starts
-        Container(
-          height: 320.0,
-          child: const Products(),
-        )
+          //Product Grid View starts
+          Container(
+            height: 320.0,
+            child: const Products(),
+          )
         ],
       ),
     );
   }
 }
-
