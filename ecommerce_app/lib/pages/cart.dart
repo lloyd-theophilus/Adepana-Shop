@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Carts extends StatefulWidget {
@@ -25,6 +24,26 @@ class _CartsState extends State<Carts> {
             onPressed: () {},
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: Row(
+          children:  [
+            const Expanded(
+                child: ListTile(
+              title: Text('Total'),
+              subtitle: Text('\$230'),
+            )),
+            Expanded(child:
+             MaterialButton(
+              onPressed: () {},
+            color: Colors.orange,
+            padding: const EdgeInsets.only(right: 0.0),
+            child: const Text('Checkout'),
+            
+            ))
+          ],
+        ),
       ),
     );
   }
