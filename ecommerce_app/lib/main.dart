@@ -6,6 +6,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 //All components imports
 import 'package:ecommerce_app/components/horizontal_listview.dart';
 import 'package:ecommerce_app/components/products.dart';
+import 'package:ecommerce_app/pages/cart.dart';
 
 void main() {
   runApp(const MaterialApp(

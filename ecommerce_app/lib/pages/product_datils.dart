@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/main.dart';
+import 'package:ecommerce_app/pages/cart.dart';
 
 class ProductDetails extends StatefulWidget {
   final productDetailName;
@@ -41,13 +42,6 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             onPressed: () {},
           ),
-          IconButton(
-            icon: const Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          )
         ],
       ),
       body: ListView(
@@ -232,7 +226,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Icons.add_shopping_cart,
                   color: Colors.orange,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: ((context) {
+                    return const Carts();
+                  })));
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.favorite_border, color: Colors.orange),
@@ -281,20 +280,16 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ],
           ),
-         const Divider(),
-         Container(
-           padding:const EdgeInsets.only(left: 10.0, top: 20),
-           child: const Text('Related Products', 
-           style: TextStyle(
-            fontWeight: FontWeight.bold))
-         ),
+          const Divider(),
+          Container(
+              padding: const EdgeInsets.only(left: 10.0, top: 20),
+              child: const Text('Related Products',
+                  style: TextStyle(fontWeight: FontWeight.bold))),
           //=====================Related Product=========================================//////////
           Container(
             padding: const EdgeInsets.only(top: 25),
             height: 360.0,
             child: const RelatedProducts(),
-            
-            
           )
         ],
       ),
@@ -304,13 +299,12 @@ class _ProductDetailsState extends State<ProductDetails> {
 
 //=====================Related Product=========================================//////////
 class RelatedProducts extends StatefulWidget {
-  
-
-  const RelatedProducts({Key? key,}) : super(key: key);
+  const RelatedProducts({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<RelatedProducts> createState() => _RelatedProductsState();
-  
 }
 
 class _RelatedProductsState extends State<RelatedProducts> {
@@ -355,7 +349,7 @@ class _RelatedProductsState extends State<RelatedProducts> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-     itemCount: productList.length,
+        itemCount: productList.length,
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, int index) {
@@ -380,8 +374,8 @@ class RelatedProduct extends StatelessWidget {
       this.productName,
       this.productPicture,
       this.productOldPrice,
-      this.productPrice
-      }): super(key: key);
+      this.productPrice})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -395,12 +389,12 @@ class RelatedProduct extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
             //Passing the value of the product to the product details page.
             builder: (context) {
-             return ProductDetails(
-              productDetailName: productName,
-              productDetailPicture: productPicture,
-              productDetailPrice: productPrice,
-              productDetailOldPrice: productOldPrice,
-             );
+              return ProductDetails(
+                productDetailName: productName,
+                productDetailPicture: productPicture,
+                productDetailPrice: productPrice,
+                productDetailOldPrice: productOldPrice,
+              );
             },
           ));
         },
@@ -435,4 +429,3 @@ class RelatedProduct extends StatelessWidget {
     ));
   }
 }
-
