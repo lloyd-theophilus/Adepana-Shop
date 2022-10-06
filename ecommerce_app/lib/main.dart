@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('Home'),
-                leading: Icon(Icons.home, color: Colors.black),
+                leading: Icon(Icons.home, color: Colors.orange),
               ),
             ),
 
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('My Account'),
-                leading: Icon(Icons.person, color: Colors.black),
+                leading: Icon(Icons.person, color: Colors.orange),
               ),
             ),
 
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket, color: Colors.black),
+                leading: Icon(Icons.shopping_basket, color: Colors.orange),
               ),
             ),
 
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('Shopping Cart'),
-                leading: Icon(Icons.shopping_cart, color: Colors.black),
+                leading: Icon(Icons.shopping_cart, color: Colors.orange),
               ),
             ),
 
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('Favourites'),
-                leading: Icon(Icons.favorite, color: Colors.redAccent),
+                leading: Icon(Icons.favorite, color: Colors.orange),
               ),
             ),
 //          Drawer Divider
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: const ListTile(
                 title: Text('Settings'),
-                leading: Icon(Icons.settings, color: Colors.black),
+                leading: Icon(Icons.settings, color: Colors.orange),
               ),
             ),
 
