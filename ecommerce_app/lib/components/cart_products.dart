@@ -19,7 +19,7 @@ class _CartProductsState extends State<CartProducts> {
       'quantity': 1,
     },
     {
-      'name': 'Summer Style',
+      'name': 'Summer',
       'picture': 'images/products/b1.jpeg',
       'price': 100,
       'size': 'L',
@@ -27,7 +27,7 @@ class _CartProductsState extends State<CartProducts> {
       'quantity': 1
     },
     {
-      'name': 'Drip Stlye',
+      'name': 'Drip ',
       'picture': 'images/products/c1.jpeg',
       'price': 200,
       'size': 'S',
@@ -74,6 +74,9 @@ class single_cart_product extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        //Leading section contains the image
+        leading: Image.asset(CartproductPicture),
+        //This section contains the product name
         title: Text(CartproductName),
         subtitle: Row(children: <Widget>[
           //This section contains the product size
@@ -87,7 +90,7 @@ class single_cart_product extends StatelessWidget {
           ),
           //This section is for product color
           const Padding(
-            padding: EdgeInsets.fromLTRB(70.0, 8.0, 8.0, 8.0),
+            padding: EdgeInsets.fromLTRB(30.0, 8.0, 8.0, 8.0),
             child: Text('Color:'),
           ),
           Padding(
@@ -96,8 +99,10 @@ class single_cart_product extends StatelessWidget {
           ),
           //his section is the product price
           const Padding(padding: EdgeInsets.only(left: 20.0)),
-          Text('\$$CartPrice')
+          Text('\$$CartPrice'),
+          //Text(CartproductQuantity)
         ]),
+        
       ),
     );
   }
