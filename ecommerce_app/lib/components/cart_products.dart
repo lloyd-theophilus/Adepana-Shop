@@ -41,33 +41,33 @@ class _CartProductsState extends State<CartProducts> {
         itemCount: cart_product_list.length,
         itemBuilder: (context, index) {
           return single_cart_product(
-            CartproductName: cart_product_list[index]['name'],
-            CartproductPicture: cart_product_list[index]['picture'],
-            CartPrice: cart_product_list[index]['price'],
-            CartproductColor: cart_product_list[index]['color'],
-            CartproductSize: cart_product_list[index]['size'],
-            CartproductQuantity: cart_product_list[index]['quantity'],
+            cartProductName: cart_product_list[index]['name'],
+            cartProductPicture: cart_product_list[index]['picture'],
+            cartPrice: cart_product_list[index]['price'],
+            cartProductColor: cart_product_list[index]['color'],
+            cartProductSize: cart_product_list[index]['size'],
+            cartProductQuantity: cart_product_list[index]['quantity'],
           );
         });
   }
 }
 
 class single_cart_product extends StatelessWidget {
-  final CartproductName;
-  final CartproductPicture;
-  final CartPrice;
-  final CartproductSize;
-  final CartproductColor;
-  final CartproductQuantity;
+  final cartProductName;
+  final cartProductPicture;
+  final cartPrice;
+  final cartProductSize;
+  final cartProductColor;
+  final cartProductQuantity;
 
   const single_cart_product(
       {Key? key,
-      this.CartproductName,
-      this.CartproductPicture,
-      this.CartproductSize,
-      this.CartproductColor,
-      this.CartproductQuantity,
-      this.CartPrice})
+      this.cartProductName,
+      this.cartProductPicture,
+      this.cartProductSize,
+      this.cartProductColor,
+      this.cartProductQuantity,
+      this.cartPrice})
       : super(key: key);
 
   @override
@@ -75,9 +75,9 @@ class single_cart_product extends StatelessWidget {
     return Card(
       child: ListTile(
         //Leading section contains the image
-        leading: Image.asset(CartproductPicture),
+        leading: Image.asset(cartProductPicture),
         //This section contains the product name
-        title: Text(CartproductName),
+        title: Text(cartProductName),
         subtitle: Column(
           children: <Widget>[
           //This section contains the product size
@@ -89,31 +89,37 @@ class single_cart_product extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Text(CartproductSize),
+            child: Text(cartProductSize),
           ),
           //This section is for product color
           const Padding(
-            padding: EdgeInsets.fromLTRB(30.0, 8.0, 8.0, 8.0),
+            padding: EdgeInsets.fromLTRB(15.0, 8.0, 8.0, 8.0),
             child: Text('Color:'),
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Text(CartproductColor),
+            child: Text(cartProductColor),
           ),
           //his section is the product price
             ],
           ),
           Container(
             alignment: Alignment.topLeft,
-            child: Text('\$$CartPrice', style: const TextStyle(color: Colors.black),),
+            child: Text('\$$cartPrice', style: const TextStyle(color: Colors.black),),
           )
           
           //Text(CartproductQuantity)
         ]),
-        trailing: Column(
-          children: [
-            IconButton(onPressed: (() {}), icon: Icon(Icons.arrow_drop_up))
-          ]),
+        trailing: FittedBox(
+          fit: BoxFit.fill,
+          child: Column(
+          children: <Widget>[
+            IconButton(icon: const Icon(Icons.arrow_drop_up), onPressed: (){}),
+            Text('$cartProductQuantity'),
+            IconButton(icon: const Icon(Icons.arrow_drop_down), onPressed: (){}),
+          ],
+          ),
+        ),
       ),
     );
   }
