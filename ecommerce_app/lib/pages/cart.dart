@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Import components
+import 'package:ecommerce_app/components/cart_products.dart';
+
 class Carts extends StatefulWidget {
   const Carts({Key? key}) : super(key: key);
 
@@ -25,6 +28,10 @@ class _CartsState extends State<Carts> {
           ),
         ],
       ),
+      //Cart products used here
+      body: const CartProducts(),
+      //End of Cart products
+
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Row(
@@ -39,7 +46,7 @@ class _CartsState extends State<Carts> {
               onPressed: () {},
             color: Colors.orange,
             padding: const EdgeInsets.only(right: 0.0),
-            child: const Text('Checkout'),
+            child: const Text('Checkout', style: TextStyle(color: Colors.white, fontSize: 16),),
             
             ))
           ],
