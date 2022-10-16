@@ -78,10 +78,13 @@ class single_cart_product extends StatelessWidget {
         leading: Image.asset(CartproductPicture),
         //This section contains the product name
         title: Text(CartproductName),
-        subtitle: Row(children: <Widget>[
+        subtitle: Column(
+          children: <Widget>[
           //This section contains the product size
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Row(
+            children: [
+              const Padding(
+            padding: EdgeInsets.all(2.0),
             child: Text('Size:'),
           ),
           Padding(
@@ -98,11 +101,19 @@ class single_cart_product extends StatelessWidget {
             child: Text(CartproductColor),
           ),
           //his section is the product price
-          const Padding(padding: EdgeInsets.only(left: 20.0)),
-          Text('\$$CartPrice'),
+            ],
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Text('\$$CartPrice', style: const TextStyle(color: Colors.black),),
+          )
+          
           //Text(CartproductQuantity)
         ]),
-        
+        trailing: Column(
+          children: [
+            IconButton(onPressed: (() {}), icon: Icon(Icons.arrow_drop_up))
+          ]),
       ),
     );
   }
