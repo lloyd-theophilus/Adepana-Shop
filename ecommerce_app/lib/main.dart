@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     // Carousel Container
     Widget carouselImage = SizedBox(
       height: 200,
-      width: 200,
+      width: 400,
       child: Carousel(
         boxFit: BoxFit.cover,
         images: const [
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       //Call the image method
-      body: ListView(
+      body: Column(
         children: <Widget>[
           //Image carouselImage bgins her
           carouselImage,
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.all(10),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 10.0, bottom: 7.0),
+            padding: const EdgeInsets.only(left: 0.0, bottom: 7.0),
             child: const Text(
               'Categories',
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -184,10 +184,9 @@ class _HomePageState extends State<HomePage> {
           ),
 
           //Product Grid View starts
-          Container(
-            height: 320.0,
-            child: const Products(),
-          )
+          const Flexible(
+            child: Products()),
+          
         ],
       ),
     );
